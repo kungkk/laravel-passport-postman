@@ -39,7 +39,8 @@ class RouteServiceProvider extends ServiceProvider
 
         $this->mapWebRoutes();
 
-        //
+        // ref new method for adding client credentials
+        $this->mapClientCredentialRoutes();        
     }
 
     /**
@@ -70,4 +71,21 @@ class RouteServiceProvider extends ServiceProvider
              ->namespace($this->namespace)
              ->group(base_path('routes/api.php'));
     }
+
+
+    // @link http://filljoyner.com/2017/03/01/how-to-use-client-credentials-grant-tokens-for-your-api-authorization-with-laravel-5-4s-passport/
+    /**
+     * Define the "client_credentials" routes for the application with prefix "api".
+     *
+     * These routes are typically stateless.
+     *
+     * @return void
+     */
+    protected function mapClientCredentialRoutes()
+    {
+        Route::prefix('api') // I still want /api/ urls
+            ->middleware('client_credentials')
+            ->namespace($this->namespace)
+            ->group(base_path('routes/client_credentials.php'));
+    }    
 }

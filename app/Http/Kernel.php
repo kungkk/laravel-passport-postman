@@ -41,6 +41,13 @@ class Kernel extends HttpKernel
             'throttle:60,1',
             'bindings',
         ],
+        
+        // @link http://filljoyner.com/2017/03/01/how-to-use-client-credentials-grant-tokens-for-your-api-authorization-with-laravel-5-4s-passport/
+        'client_credentials' => [
+            \Laravel\Passport\Http\Middleware\CheckClientCredentials::class,
+            'throttle:60,1',
+            'bindings',
+        ],    
     ];
 
     /**

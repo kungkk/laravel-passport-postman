@@ -1,6 +1,6 @@
 <?php
 
-use Illuminate\Http\Request;
+//@link http://filljoyner.com/2017/03/01/how-to-use-client-credentials-grant-tokens-for-your-api-authorization-with-laravel-5-4s-passport/
 
 /*
 |--------------------------------------------------------------------------
@@ -13,7 +13,6 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
 
+Route::get('/articles', 'ArticleController@index');
+//Route::middleware('auth:api')->get('/articles', 'ArticleController@index');
