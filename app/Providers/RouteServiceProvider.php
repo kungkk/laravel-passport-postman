@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
+use Laravel\Passport\Passport;
 
 class RouteServiceProvider extends ServiceProvider
 {
@@ -40,7 +41,7 @@ class RouteServiceProvider extends ServiceProvider
         $this->mapWebRoutes();
 
         // ref new method for adding client credentials
-        $this->mapClientCredentialRoutes();        
+        $this->mapClientCredentialRoutes();     
     }
 
     /**
